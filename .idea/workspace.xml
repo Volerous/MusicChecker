@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d51cb492-a3dd-465b-8736-efb2285c4158" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/monstercatDrumBassOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/monstercatElectroOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/monstercatFutureBassOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/monstercatGlitchHopOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/monstercatIndieDanceOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ncsDrumBassOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ncsHouseOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xkitoDrumBassOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xkitoElectroOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xkitoFutureBassOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xkitoGlitchHopOldList.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xkitoNuDiscoOldList.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/List Creator.py" afterPath="$PROJECT_DIR$/List Creator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Parser.py" afterPath="$PROJECT_DIR$/Parser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testOldList.csv" afterPath="$PROJECT_DIR$/testOldList.csv" />
     </list>
     <ignored path="MusicChecker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,10 +30,10 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/MusicChecker$List_Creator.coverage" NAME="List Creator Coverage Results" MODIFIED="1459767089746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MusicChecker$List_Creator.coverage" NAME="List Creator Coverage Results" MODIFIED="1459770941292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MusicChecker$Test.coverage" NAME="Test Coverage Results" MODIFIED="1459694696894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MusicChecker$playlist_localizations.coverage" NAME="playlist_localizations Coverage Results" MODIFIED="1459697134978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MusicChecker$Parser.coverage" NAME="Parser Coverage Results" MODIFIED="1459766489724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MusicChecker$Parser.coverage" NAME="Parser Coverage Results" MODIFIED="1459770902907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MusicChecker$youParse.coverage" NAME="youParse Coverage Results" MODIFIED="1459695741703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -37,8 +48,8 @@
       <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="658">
-              <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
+            <state relative-caret-position="1083">
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -49,20 +60,8 @@
       <file leaf-file-name="List Creator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/List Creator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="monstercatDrumBassOldList.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/monstercatDrumBassOldList.csv">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -97,8 +96,8 @@
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/playlist_localizations.py" />
         <option value="$PROJECT_DIR$/testOldList.csv" />
-        <option value="$PROJECT_DIR$/Parser.py" />
         <option value="$PROJECT_DIR$/List Creator.py" />
+        <option value="$PROJECT_DIR$/Parser.py" />
       </list>
     </option>
   </component>
@@ -569,9 +568,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -597,9 +594,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -651,8 +646,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
+        <state relative-caret-position="1083">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -661,11 +656,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/List Creator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

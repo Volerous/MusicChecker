@@ -9,7 +9,8 @@ class PlayList:
 	# name tuple to store outputs
     Video = namedtuple('Video', ['url', 'title'])
 
-    def __init__(self, listurl):
+    def __init__(self, listurl, name):
+        self.name = name
         # get the html text
         self.__listurl = self.__makeUrl(listurl)
         htmldoc = requests.get(self.__listurl).text
@@ -25,7 +26,9 @@ class PlayList:
             # list of the raw hrefs and their anchor texts
             self.__rawList = [(x.get('href'), x.contents[0].strip())
                               for x in rawList]
-
+        self.urlList = self.__urlList()
+        self.fileName = self.name + 'OldList.csv'
+        self.diff = [item for item in self.urlList if not item in self.oldList()]
 
     @property
     def playlist(self):
@@ -56,14 +59,25 @@ class PlayList:
                 if x.startswith('list=')][0]
 
     # creates list of clean URLs for use when checking
-    def urlList(self):
+    def __urlList(self):
         urlList = []
         for a in self.playlist:
             urlList.append(a.url)
         return urlList
 
     # writing to .csv file for saving for the next time
-    def write(self,file):
-        with open(file, 'w') as f:
+    def write(self):
+        with open(self.fileName, 'w') as f:
             writer = csv.writer(f)
-            writer.writerows(self.urlList())
+            writer.writerows(self.urlList)
+
+    # load list from .csv file and creating (# list of strings) from file
+    def oldList(self):
+        with open(self.fileName, newline='') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            urlList = []
+            for row in spamreader:
+                str = ', '.join(row)
+                urlList.append(str.replace(',', ''))
+            urlList = list(filter(None, urlList))
+            return urlList
