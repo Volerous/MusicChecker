@@ -30,7 +30,6 @@ def writeAllLists():
     xkitoNuDisco.write()
     xkitoGlitchHop.write()
     xkitoFutureBass.write()
-writeAllLists()
 
 def getFullListDiff():
     finalList = test.diff
@@ -47,3 +46,6 @@ def getFullListDiff():
     finalList.extend(xkitoNuDisco.diff)
     finalList.extend(xkitoFutureBass.diff)
     return finalList
+def createBatchFile():
+    file = open("%USERPROFILE%/Music/batch.txt", "w")
+    file.write()
