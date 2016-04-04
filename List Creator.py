@@ -50,7 +50,7 @@ def getDiff(playlistNew, playlistOld):
 
 def getFullList():
     finalList = [item for item in makeUrlList(test.playlist) if not item in loadList('testOldList.csv')]
-    finalList = [item for item in makeUrlList(test.playlist) if not item in loadList('testOldList.csv')]
+
     return finalList
 print(getFullList())
 
