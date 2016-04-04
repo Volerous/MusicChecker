@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from collections import namedtuple
 import requests
+import csv
 
 """This class extracts the urls and titles of a given youtube playlist"""
 
@@ -53,3 +54,16 @@ class PlayList:
         return r'''https://www.youtube.com/playlist?''' + \
                [x for x in text.split('&')
                 if x.startswith('list=')][0]
+
+    # creates list of clean URLs for use when checking
+    def urlList(self):
+        urlList = []
+        for a in self.playlist:
+            urlList.append(a.url)
+        return urlList
+
+    # writing to .csv file for saving for the next time
+    def write(self,file):
+        with open(file, 'w') as f:
+            writer = csv.writer(f)
+            writer.writerows(self.urlList())

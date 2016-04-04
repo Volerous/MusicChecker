@@ -1,7 +1,7 @@
 from Parser import PlayList
 import csv
 
-"""
+
 monstercatFutureBass = PlayList('https://www.youtube.com/playlist?list=PLe8jmEHFkvsbRwwi0ode5c9iMQ2dyJU3N')
 monstercatDrumBass = PlayList('https://www.youtube.com/playlist?list=PL9BCA60EEB1C8893D')
 monstercatElectro = PlayList('https://www.youtube.com/playlist?list=PL21A7A915E7020E73')
@@ -11,25 +11,12 @@ ncsHouse = PlayList('https://www.youtube.com/playlist?list=PLRBp0Fe2GpgmsW46rJyu
 ncsDrumBass = PlayList('https://www.youtube.com/playlist?list=PLRBp0Fe2GpgnzYdHtTCoBYPyIJG9_opMn')
 xkitoDrumBass = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4fZQ5IS-AaTEnsTHy0zuXr8')
 xkitoElectro = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4dT5siJAyQJag9_-T_X5VT_')
-xktioFutureBass = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4ermdmmjtr6uxYj0eZ_nKc4')
+xkitoFutureBass = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4ermdmmjtr6uxYj0eZ_nKc4')
 xkitoNuDisco = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4d54-kCbNETZWLO6H1evYrE')
 xkitoGlitchHop = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4dgellaUrmAcV7s-VhfqHat')
-"""
 
 test = PlayList('https://www.youtube.com/playlist?list=PLMC1lL-g1-zajmJpSneZcXCB-dVpMwbcB')
-#creates list of clean URLs for use when checking
-def makeUrlList(playlistList):
-    urlList = []
-    for a in playlistList:
-        urlList.append(a.url)
-    return urlList
 
-
-#writing to .csv file for saving for the next time
-def write(List):
-    with open('testOldList.csv','w') as f:
-        writer = csv.writer(f)
-        writer.writerows(List)
 
 
 #load list from .csv file and creating (# list of strings) from file
@@ -43,21 +30,22 @@ def loadList(file):
         urlList = list(filter(None,urlList))
         return urlList
 
-#returns a list of all the links to the videoes that aren't in the list(meaning the new videos)
-def getDiff(playlistNew, playlistOld):
-    List = list(set(playlistNew) - set(playlistOld))
-    return List
+def writeAllLists():
+    monstercatElectro.write('monstercatElectroOldList.csv')
+    monstercatDrumBass.write('monstercatDrumBassOldList.csv')
+    monstercatFutureBass.write('monstercatFutureBassOldList.csv')
+    monstercatGlitchHop.write('monstercatGlitchHopOldList.csv')
+    monstercatIndieDance.write('monstercatIndieDanceOldList.csv')
+    ncsDrumBass.write('ncsDrumBassOldList.csv')
+    ncsHouse.write('ncsHouseOldList.csv')
+    xkitoDrumBass.write('xkitoDrumBassOldList.csv')
+    xkitoElectro.write('xkitoElectroOldList.csv')
+    xkitoNuDisco.write('xkitoNuDiscoOldList.csv')
+    xkitoGlitchHop.write('xkitoGlitchHopOldList.csv')
+    xkitoFutureBass.write('xkitoFutureBassOldList.csv')
 
-def getFullList():
-    finalList = [item for item in makeUrlList(test.playlist) if not item in loadList('testOldList.csv')]
 
+def getFullListDiff():
+    finalList = [item for item in test.urlList() if not item in loadList('testOldList.csv')]
+    finalList.extend([item for item in test.urlList() if not item in loadList('testOldList.csv')])
     return finalList
-print(getFullList())
-
-"""
-monstercatFutureBassOldList = open("monstercatFutureBassOldList.txt", 'w')
-monstercatDrumBassOldList = open('monstercatDrumBassOldList.txt', 'w')
-monstercatElectroOldList = open('monstercatElectroOldList.txt', 'w')
-monstercatGlitchHopOldList = open('monstercatGlitchHopOldList.txt', 'w')
-monstercatIndieDanceOldList =
-"""
