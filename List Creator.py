@@ -1,11 +1,7 @@
 from Parser import PlayList
-import sys
 import os
 
-sys.stdout.write('Retrieving playlists\n')
 
-userFolder = os.environ['USERPROFILE']
-musicFile = userFolder + '/Music/batch.txt'
 monstercatFutureBass = PlayList('https://www.youtube.com/playlist?list=PLe8jmEHFkvsbRwwi0ode5c9iMQ2dyJU3N', 'mcFB')
 monstercatDrumBass = PlayList('https://www.youtube.com/playlist?list=PL9BCA60EEB1C8893D', 'mcDB')
 monstercatElectro = PlayList('https://www.youtube.com/playlist?list=PL21A7A915E7020E73', 'mcElectro')
@@ -18,7 +14,6 @@ xkitoElectro = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4dT5si
 xkitoFutureBass = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4ermdmmjtr6uxYj0eZ_nKc4', 'xkitoFB')
 xkitoNuDisco = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4d54-kCbNETZWLO6H1evYrE', 'xkitoND')
 xkitoGlitchHop = PlayList('https://www.youtube.com/playlist?list=PLvlw_ICcAI4dgellaUrmAcV7s-VhfqHat', 'xkitoGH')
-
 
 
 def writeAllLists():
@@ -35,30 +30,24 @@ def writeAllLists():
     xkitoGlitchHop.write()
     xkitoFutureBass.write()
 
+
 def getFullListDiff():
     finalList = []
-    finalList.extend(monstercatElectro.diff)
-    finalList.extend(monstercatIndieDance.diff)
-    finalList.extend(monstercatGlitchHop.diff)
-    finalList.extend(monstercatDrumBass.diff)
-    finalList.extend(monstercatFutureBass.diff)
-    finalList.extend(ncsHouse.diff)
-    finalList.extend(ncsDrumBass.diff)
-    finalList.extend(xkitoDrumBass.diff)
-    finalList.extend(xkitoGlitchHop.diff)
-    finalList.extend(xkitoElectro.diff)
-    finalList.extend(xkitoNuDisco.diff)
-    finalList.extend(xkitoFutureBass.diff)
+    finalList.extend(monstercatElectro.diff())
+    finalList.extend(monstercatIndieDance.diff())
+    finalList.extend(monstercatGlitchHop.diff())
+    finalList.extend(monstercatDrumBass.diff())
+    finalList.extend(monstercatFutureBass.diff())
+    finalList.extend(ncsHouse.diff())
+    finalList.extend(ncsDrumBass.diff())
+    finalList.extend(xkitoDrumBass.diff())
+    finalList.extend(xkitoGlitchHop.diff())
+    finalList.extend(xkitoElectro.diff())
+    finalList.extend(xkitoNuDisco.diff())
+    finalList.extend(xkitoFutureBass.diff())
     return finalList
 
-def createBatchFile():
-    file = open(musicFile, "w")
-    for i in getFullListDiff():
-        file.write("%s\n" % i)
 
-
-sys.stdout.write('checking differences...\n')
-createBatchFile()
-sys.stdout.write('Written to batch.txt')
 for a in getFullListDiff():
     os.system('youtube-dl -x --audio-format mp3 -o "%%(uploader)s-%%(title)s-%%(id)s.%%(ext)s" %s' % a)
+writeAllLists()

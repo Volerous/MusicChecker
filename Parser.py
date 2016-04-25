@@ -27,8 +27,7 @@ class PlayList:
             self.__rawList = [(x.get('href'), x.contents[0].strip())
                               for x in rawList]
         self.urlList = self.__urlList()
-        self.fileName = self.name + 'OldList.csv'
-        self.diff = [item for item in self.urlList if not item in self.oldList()]
+        self.fileName = 'csv files/' + self.name + '.csv'
 
     @property
     def playlist(self):
@@ -67,8 +66,8 @@ class PlayList:
 
     # writing to .csv file for saving for the next time
     def write(self):
-        with open(self.fileName, 'w') as f:
-            writer = csv.writer(f)
+        with open(self.fileName, 'w') as file:
+            writer = csv.writer(file)
             writer.writerows(self.urlList)
 
     # load list from .csv file and creating (# list of strings) from file
@@ -81,3 +80,5 @@ class PlayList:
                 urlList.append(str.replace(',', ''))
             urlList = list(filter(None, urlList))
             return urlList
+    def diff(self):
+        return [item for item in self.urlList if not item in self.oldList()]
