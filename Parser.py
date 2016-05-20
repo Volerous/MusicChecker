@@ -66,19 +66,19 @@ class PlayList:
 
     # writing to .csv file for saving for the next time
     def write(self):
+        with open(self.fileName, 'w', newline='') as file:
+            writer = csv.writer(file, delimiter='')
+            writer.writerow([self.urlList])
+
+    def writeE(self):
         with open(self.fileName, 'w') as file:
             writer = csv.writer(file)
-            writer.writerows(self.urlList)
+            writer.writerows([])
 
     # load list from .csv file and creating (# list of strings) from file
     def oldList(self):
-        with open(self.fileName, newline='') as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-            urlList = []
-            for row in spamreader:
-                str = ', '.join(row)
-                urlList.append(str.replace(',', ''))
-            urlList = list(filter(None, urlList))
-            return urlList
+        with open(self.fileName, 'r') as csvfile:
+            spamreader = csv.reader(csvfile)
+            return list(spamreader)
     def diff(self):
         return [item for item in self.urlList if not item in self.oldList()]
