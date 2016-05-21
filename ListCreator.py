@@ -76,4 +76,11 @@ def dlSongs():
 def updateCSVFiles():
     for a in playlists:
         a.updateCSVFile()
-updateCSVFiles()
+
+def CSVtoTST():
+    for playlist in playlists:
+        file = open('%s.txt'%(a.name), 'w')
+        for b in a.oldList:
+            x,s = b.split('=')
+            file.write('youtube {}'.format(s))
+
