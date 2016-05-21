@@ -28,6 +28,7 @@ class PlayList:
                               for x in rawList]
         self.urlList = self.__urlList()
         self.fileName = 'csv files/' + self.name + '.csv'
+        self.oldList = self.__oldList()
 
     @property
     def playlist(self):
@@ -65,20 +66,27 @@ class PlayList:
         return urlList
 
     # writing to .csv file for saving for the next time
-    def write(self):
+    def write(self,urlList):
         with open(self.fileName, 'w', newline='') as file:
-            writer = csv.writer(file, delimiter='')
-            writer.writerow([self.urlList])
+            writer = csv.writer(file)
+            writer.writerow(urlList)
 
     def writeE(self):
         with open(self.fileName, 'w') as file:
             writer = csv.writer(file)
             writer.writerows([])
-
     # load list from .csv file and creating (# list of strings) from file
-    def oldList(self):
+    def __oldList(self):
         with open(self.fileName, 'r') as csvfile:
-            spamreader = csv.reader(csvfile)
-            return list(spamreader)
+            spamreader = csv.reader(csvfile, delimiter=',')
+            spamreader = list(spamreader)
+            return spamreader
+
     def diff(self):
-        return [item for item in self.urlList if not item in self.oldList()]
+        return [item for item in self.urlList if not item in self.__oldList()]
+
+    def diff2(self):
+        return [item for item in self.urlList if not item in self.oldList]
+
+    def updateCSVFile(self):
+        self.write(self.oldList[0])
