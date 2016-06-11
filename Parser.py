@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from collections import namedtuple
 import requests
 import csv
+import pickle
 
 """This class extracts the urls and titles of a given youtube playlist"""
 
@@ -13,6 +14,7 @@ class PlayList:
         self.name = name
         # get the html text
         self.__listurl = self.__makeUrl(listurl)
+        self.listURL = listurl
         htmldoc = requests.get(self.__listurl).text
         # parse the html
         soup = BeautifulSoup(htmldoc, 'html.parser')
@@ -20,15 +22,14 @@ class PlayList:
         rawList = soup('a', {'class' : 'pl-video-title-link'})
         # there has to be at least 1 item in a playlist
         if len(rawList) < 1:
-            raise ValueError('This might be either a private ' \
+            raise ValueError('This might be either a private '
                               'or an empty playlist.')
         else:
             # list of the raw hrefs and their anchor texts
             self.__rawList = [(x.get('href'), x.contents[0].strip())
                               for x in rawList]
         self.urlList = self.__urlList()
-        self.fileName = 'csv files/' + self.name + '.csv'
-        self.oldList = self.__oldList()
+        self.fileName = 'files/' + self.name + '.pkl'
 
     @property
     def playlist(self):
@@ -66,27 +67,18 @@ class PlayList:
         return urlList
 
     # writing to .csv file for saving for the next time
-    def write(self,urlList):
-        with open(self.fileName, 'w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(urlList)
+    def write(self):
+        with open(self.fileName, 'wb') as file:
+            pickle.dump(self.urlList,file,protocol=pickle.HIGHEST_PROTOCOL)
 
     def writeE(self):
         with open(self.fileName, 'w') as file:
             writer = csv.writer(file)
             writer.writerows([])
     # load list from .csv file and creating (# list of strings) from file
-    def __oldList(self):
-        with open(self.fileName, 'r') as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=',')
-            spamreader = list(spamreader)
-            return spamreader
+    def oldList(self):
+        return pickle.load(open(self.fileName,'rb'))
+
 
     def diff(self):
-        return [item for item in self.urlList if not item in self.__oldList()]
-
-    def diff2(self):
-        return [item for item in self.urlList if not item in self.oldList]
-
-    def updateCSVFile(self):
-        self.write(self.oldList[0])
+        return [item for item in self.urlList if not item in self.oldList()]
