@@ -64,10 +64,12 @@ def dlSongs():
         for song in a.diff():
             os.system('youtube-dl -x -i --audio-format mp3 -o "%s - %%(title)s-%%(id)s.%%(ext)s" %s' %
                   (a.name, song))
+
 def dlSongsDate(date):
     for a in playlists:
         os.system('youtube-dl -x --audio-format mp3 -i --dateafter %s -o "%s - %%(title)s-%%(id)s.%%(ext)s" %s' %
                   (date,a.name, a.listURL))
+
 def updateCSVFiles():
     for a in playlists:
         a.updateCSVFile()
