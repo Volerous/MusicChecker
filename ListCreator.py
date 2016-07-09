@@ -52,7 +52,7 @@ def getFullListDiff():
         finalList += a.diff()
     return finalList
 
-def createFile():
+def createFiles():
     for a in playlists:
         if not os.path.isfile(a.fileName):
             a.writeE()
