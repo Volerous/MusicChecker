@@ -1,5 +1,6 @@
 from Parser import PlayList
 import os
+import argparse
 
 playlistNames = ['Monstercat - Future Bass',
                  'Monstercat - Drum & Bass',
@@ -17,7 +18,7 @@ playlistNames = ['Monstercat - Future Bass',
                  'Vexento - Electro',
                  'Vexento - Inspiration',
                  'Vexento - Chill',
-                 'Artzie']
+                 'Artzie Music']
 urlList = ['https://www.youtube.com/playlist?list=PLe8jmEHFkvsbRwwi0ode5c9iMQ2dyJU3N',
            'https://www.youtube.com/playlist?list=PL9BCA60EEB1C8893D',
            'https://www.youtube.com/playlist?list=PL21A7A915E7020E73',
@@ -36,11 +37,14 @@ urlList = ['https://www.youtube.com/playlist?list=PLe8jmEHFkvsbRwwi0ode5c9iMQ2dy
            'https://www.youtube.com/playlist?list=PLcd3emSF7UMCEVznCb2foDghKoq7ehcD1',
            'https://www.youtube.com/playlist?list=PLWvkIZpd20Tyq9xOXW9qb_lcZ7TSbVGpa']
 
-playlists = []
-for a,b in zip(playlistNames,urlList):
-    print('%s'% a)
-    a = PlayList(b,a)
-    playlists.append(a)
+def createPlaylists():
+    playlist = []
+    for a,b in zip(playlistNames,urlList):
+        z = PlayList(b,a)
+        playlist.append(z)
+    return playlist
+
+playlists = createPlaylists()
 
 def writeAllLists():
     for a in playlists:
@@ -65,6 +69,7 @@ def dlSongs():
             os.system('youtube-dl -x -i --audio-format mp3 -o "%s - %%(title)s-%%(id)s.%%(ext)s" %s' %
                   (a.name, song))
 
+
 def dlSongsDate(date):
     for a in playlists:
         os.system('youtube-dl -x --audio-format mp3 -i --dateafter %s -o "%s - %%(title)s-%%(id)s.%%(ext)s" %s' %
@@ -82,5 +87,8 @@ def test_pickle():
     for a in playlists:
         print(a.oldList())
         print(a.diff())
+
+def dl(list):
+    os.system('youtube-dl -x -i --audio-format mp3 %s' % list)
 dlSongs()
 pickle()
